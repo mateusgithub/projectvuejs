@@ -39,6 +39,16 @@
             <img v-bind:src="url" v-bind:alt="title" v-bind:title="title"/>
           </div>
 
+          <div id="contentVueFor">
+            <span>{{message}}</span>
+            <ul>
+              <li style="list-style-type: none;" v-for="todo in todos">{{todo.id}} - {{todo.text}}</li>
+            </ul>
+
+            <ul>
+              <li style="list-style-type: none;" v-for="count in count">#{{count}}</li>
+            </ul>
+          </div>
         </div>
     </body>
 
@@ -81,6 +91,19 @@
             message: 'This is the text !',
             title: 'this is the TITLE !',
             url: "https://vuejs.org/images/logo.png"
+          }
+        })
+
+        var appContentVueFor = new Vue({
+          el: '#contentVueFor',
+          data: {
+            message: 'This is content of Vue For !',
+            todos: [
+              { text: 'Number 1', id: 1 },
+              { text: 'Number 2', id: 2 },
+              { text: 'Numver 3', id: 3}
+            ],
+            count: 5
           }
         })
     </script>
