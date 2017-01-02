@@ -55,6 +55,20 @@
             </br>
             <input type="text" v-model="message"></input>
           </div>
+
+          <div id="contentVueEvent">
+            <h2>Count: {{count}} - Vue Event !</h2>
+            </br>
+            <button v-on:click="countUp" class="btn btn-primary">Count Up</button>
+            <button @click="countDown" class="btn">Count Down</button>
+            </br>
+            <h2>Vue Event part 2 !</h2>
+            <p>
+              Visit: <a v-bind:href="url">{{cleanUrl}}</a>
+            </p>
+            <input type="text" class="form-control" v-model="url"></input>
+            <button @click="humanizeUrl" class="btn btn-primary">Humanize Me !</button>
+          </div>
         </div>
     </body>
 
@@ -117,6 +131,27 @@
           el: '#contentVueModel',
           data: {
             message: 'This is the Vue Model !'
+          }
+        })
+
+        var appContentVueEvent = new Vue({
+          el: '#contentVueEvent',
+          data: {
+            message: 'This is the Vue Event !',
+            count: 0,
+            url: '',
+            cleanUrl: ''
+          },
+          methods: {
+            countUp: function(){
+              this.count += 1;
+            },
+            countDown: function(){
+              this.count -= 1;
+            },
+            humanizeUrl: function(){
+              this.cleanUrl = this.url.replace(/^http?:\/\//, '').replace(/\/$/, '')
+            }
           }
         })
     </script>
