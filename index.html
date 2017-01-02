@@ -15,10 +15,23 @@
               <h1>{{message}}</h1>
           </div>
 
-          <div id="content">
-            <strong>{{message}}</strong>
-            </br>
-            <span>Teste</span>
+          <!-- title -->
+          <div id="contentDate">
+            <span v-bind:title="message">
+                Hover your mouse over me for a few seconds to see
+            </span>
+          </div>
+
+          <div id="contentText">
+            <!-- <span v-text="message"/> -->
+            <span v-html="intro"></span>
+          </div>
+
+          <div id="contentShow">
+            <!-- <span v-show="viewed">This message is viewed !</span> -->
+            <span v-pre>{{message}} </span>
+            <span v-if="viewed" v-once v-cloak>{{message}}</span>
+            <span v-else>This message is NOT viewed and changed value !</span>
           </div>
         </div
     </body>
@@ -33,11 +46,27 @@
             }
         })
 
-        var appContent = new Vue({
-            el: '#content',
+        var appContentDate = new Vue({
+            el: '#contentDate',
             data : {
-              message: 'Content Page'
+              message: 'You loaded this page on ' + new Date()
             }
+        })
+
+        var appContentText = new Vue({
+          el: '#contentText',
+          data: {
+            message: 'This is text of v-text',
+            intro: "Welcome to project <b>projectvuejs !</b>"
+          }
+        })
+
+        var appContentShow = new Vue({
+          el: '#contentShow',
+          data: {
+            message: 'This message is viewed and is NOT change !',
+            viewed: true
+          }
         })
     </script>
 </html>
