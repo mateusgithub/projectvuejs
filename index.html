@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Project Vue.JS</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="content-page" style="margin: 5%">
+          <div id="title" style="text-align:center;">
+              <h1>{{message}}</h1>
+          </div>
+
+          <div id="content">
+            <strong>{{message}}</strong>
+            </br>
+            <span>Teste</span>
+          </div>
+        </div
+    </body>
+
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#title',
+            data: {
+                message: 'Hello Vue World'
+            }
+        })
+
+        var appContent = new Vue({
+            el: '#content',
+            data : {
+              message: 'Content Page'
+            }
+        })
+    </script>
+</html>
