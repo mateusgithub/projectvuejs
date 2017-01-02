@@ -33,7 +33,13 @@
             <span v-if="viewed" v-once v-cloak>{{message}}</span>
             <span v-else>This message is NOT viewed and changed value !</span>
           </div>
-        </div
+
+          <div id="contentBind">
+            <span v-bind:title="title">{{message}}</span>
+            <img v-bind:src="url" v-bind:alt="title" v-bind:title="title"/>
+          </div>
+
+        </div>
     </body>
 
     <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
@@ -66,6 +72,15 @@
           data: {
             message: 'This message is viewed and is NOT change !',
             viewed: true
+          }
+        })
+
+        var appContentBind = new Vue({
+          el: '#contentBind',
+          data: {
+            message: 'This is the text !',
+            title: 'this is the TITLE !',
+            url: "https://vuejs.org/images/logo.png"
           }
         })
     </script>
