@@ -49,6 +49,12 @@
               <li style="list-style-type: none;" v-for="count in count">#{{count}}</li>
             </ul>
           </div>
+
+          <div id="contentVueModel">
+            <span>{{message}}</span>
+            </br>
+            <input type="text" v-model="message"></input>
+          </div>
         </div>
     </body>
 
@@ -104,6 +110,13 @@
               { text: 'Numver 3', id: 3}
             ],
             count: 5
+          }
+        })
+
+        var appContentVueModel = new Vue({
+          el: '#contentVueModel',
+          data: {
+            message: 'This is the Vue Model !'
           }
         })
     </script>
